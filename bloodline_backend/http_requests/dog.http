@@ -1,0 +1,28 @@
+#
+# Dog http request
+#
+
+### Get all dogs
+GET http://127.0.0.1:8000/dogs/ HTTP/1.1
+content-type: application/json
+accept: application/json
+
+### Get a dog
+GET http://127.0.0.1:8000/dogs/7/ HTTP/1.1
+content-type: application/json
+accept: application/json
+
+### Update a dog
+PUT http://127.0.0.1:8000/dogs/11/ HTTP/1.1
+content-type: application/json
+accept: application/json
+
+{
+  "name": "Pink",
+  "code": "44444"
+}
+
+### Delete a dog
+DELETE http://127.0.0.1:8000/dogs/10/ HTTP/1.1
+content-type: application/json
+accept: application/json
