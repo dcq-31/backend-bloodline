@@ -7,22 +7,48 @@ GET http://127.0.0.1:8000/dogs/ HTTP/1.1
 content-type: application/json
 accept: application/json
 
-### Get a dog
-GET http://127.0.0.1:8000/dogs/7/ HTTP/1.1
+### Create a dog
+POST http://127.0.0.1:8000/dogs/ HTTP/1.1
 content-type: application/json
 accept: application/json
+Authorization: Basic dcq:Darian31*
+
+{
+  "name": "Yadier",
+  "code": "77777",
+  "owner": 2,
+  "date_birth": "2022-01-16T07:09:51Z",
+  "breed": "BA",
+  "partners": [],
+  "litters": [],
+  "siblings": []
+}
+
+### Get a dog
+GET http://127.0.0.1:8000/dogs/11/ HTTP/1.1
+content-type: application/json
+accept: application/json
+Authorization: Basic Carl:Carl123+
 
 ### Update a dog
 PUT http://127.0.0.1:8000/dogs/11/ HTTP/1.1
 content-type: application/json
 accept: application/json
+Authorization: Basic Carl:Carl123+
 
 {
-  "name": "Pink",
-  "code": "44444"
+  "name": "Tom",
+  "code": "11111",
+  "owner": 1,
+  "date_birth": "2022-01-16T07:09:51Z",
+  "breed": "BA",
+  "partners": [],
+  "litters": [],
+  "siblings": []
 }
 
 ### Delete a dog
-DELETE http://127.0.0.1:8000/dogs/10/ HTTP/1.1
+DELETE http://127.0.0.1:8000/dogs/8/ HTTP/1.1
 content-type: application/json
 accept: application/json
+Authorization: Basic dcq:Darian31*
