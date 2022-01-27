@@ -27,7 +27,7 @@ class Dog(models.Model):
   )
   name = models.CharField(max_length=100)
   code = models.CharField('identification code', max_length=10, unique=True)
-  owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name='dogs', verbose_name='related user', default=1)
+  owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name='dogs', verbose_name='related user')
   date_birth = models.DateTimeField('date of birthday')
   breed = models.CharField('animal species', choices=DOGS_BREED_CHOICHES, max_length=2)
   partners = models.ManyToManyField('self', blank=True, verbose_name='related partners')
