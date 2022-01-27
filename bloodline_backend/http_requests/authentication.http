@@ -1,0 +1,18 @@
+#
+# Authentication http request
+#
+
+### Authenticate user
+POST http://127.0.0.1:8000/login/ HTTP/1.1
+content-type: application/json
+accept: application/json
+
+{
+  "username": "dcq",
+  "password": "Darian31*"
+}
+
+### Register user
+POST http://127.0.0.1:8000/register/ HTTP/1.1
+content-type: application/json
+accept: application/json
