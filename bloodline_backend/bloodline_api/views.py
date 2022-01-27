@@ -1,14 +1,29 @@
-from rest_framework.response import Response
 from django.http import Http404
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics, permissions
 from .models import Dog, User
 from .serializers import DogSerializer, UserSerializer
+from .permissions import IsOwnerOrReadOnly
 
+#
+# User Views
+#
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+#
 # Dogs Views
+#
 class DogList(APIView):
   # List all dogs or create a new dog
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
   def get(self, request, format=None):
     dogs = Dog.objects.all()
     serializer = DogSerializer(dogs, many=True)
@@ -23,6 +38,8 @@ class DogList(APIView):
 
 class DogDetail(APIView):
   # Retrieve, update or delete a dog.
+  permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+  
   def get_object(self, pk):
     try:
       dog = Dog.objects.get(pk=pk)
@@ -35,7 +52,7 @@ class DogDetail(APIView):
     
     serializer = DogSerializer(dog)
     return Response(serializer.data)
-
+  
   def put(self, request, pk, format=None):
     dog = self.get_object(pk)
     serializer = DogSerializer(dog, data=request.data)
@@ -45,6 +62,6 @@ class DogDetail(APIView):
     return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
   def delete(self, request, pk, format=None):
-    dog = self.get_object()
+    dog = self.get_object(pk)
     dog.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
