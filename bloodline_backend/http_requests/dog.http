@@ -2,8 +2,6 @@
 # Dog http request
 #
 
-### dcq token: 67cde8551f4f466abfd92e2b0f22ba5b11c73286
-
 ### Get all dogs
 GET http://127.0.0.1:8000/dogs/ HTTP/1.1
 content-type: application/json
@@ -16,32 +14,28 @@ accept: application/json
 Authorization: Token ff99e73fca40d6b977081b9d1f11932cb3439785
 
 {
-  "name": "A",
-  "code": "11111",
-  "owner": 1,
+  "name": "B",
+  "code": "22222",
   "date_birth": "2022-01-02T07:09:51Z",
-  "breed": "BA",
-  "partners": [],
-  "litters": [],
-  "siblings": []
+  "breed": "BA"
 }
 
 ### Get a dog
-GET http://127.0.0.1:8000/dogs/16/ HTTP/1.1
+GET http://127.0.0.1:8000/dogs/31/ HTTP/1.1
 content-type: application/json
 accept: application/json
 
 ### Update a dog
-PUT http://127.0.0.1:8000/dogs/16/ HTTP/1.1
+PUT http://127.0.0.1:8000/dogs/35/ HTTP/1.1
 content-type: application/json
 accept: application/json
 Authorization: Token ff99e73fca40d6b977081b9d1f11932cb3439785
 
 {
-  "name": "E",
-  "code": "11111",
-  "owner": 1,
+  "name": "C",
+  "code": "66666",
   "date_birth": "2022-01-16T07:09:51Z",
+  "owner": 5,
   "breed": "BA",
   "partners": [],
   "litters": [],
@@ -49,7 +43,7 @@ Authorization: Token ff99e73fca40d6b977081b9d1f11932cb3439785
 }
 
 ### Delete a dog
-DELETE http://127.0.0.1:8000/dogs/8/ HTTP/1.1
+DELETE http://127.0.0.1:8000/dogs/31/ HTTP/1.1
 content-type: application/json
 accept: application/json
-Authorization: Basic dcq:Darian31*
+Authorization: Token ff99e73fca40d6b977081b9d1f11932cb3439785

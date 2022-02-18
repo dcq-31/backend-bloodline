@@ -8,11 +8,19 @@ content-type: application/json
 accept: application/json
 
 {
-  "username": "dcq",
-  "password": "Darian31*"
+  "username": "jairi",
+  "password": "passwordjairi"
 }
 
 ### Register user
 POST http://127.0.0.1:8000/register/ HTTP/1.1
 content-type: application/json
 accept: application/json
+
+{
+ "username": "ys", 
+ "first_name": "Yasiel",
+ "last_name": "Bermudez",
+ "email": "yasiel@gmail.com",
+ "password": "Yasiel123"
+}
