@@ -1,25 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.db.models.deletion import CASCADE
 
 # User Model
 class User(AbstractUser):
+  """ User Model """
+  
   created_at = models.DateTimeField('created date', auto_now_add=True)
   update_at = models.DateTimeField('last update', auto_now=True)
   
   def __str__(self):
     return self.get_full_name()
   
+
+# Dog Model
 """
 Add Fields
 image
 """
-# Dog Model
 class Dog(models.Model):
+  """ Dog Model """
+  
   # Choises of breed (for example)
   AFGHAN_HOUND = 'AF'
   PEKINGESE = 'PE'
   BASSADOR = 'BA'
+  
   DOGS_BREED_CHOICHES = (
     (AFGHAN_HOUND, 'Afghan Hound'),
     (PEKINGESE, 'Pekingese'),
